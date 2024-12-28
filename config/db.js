@@ -2,10 +2,8 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // Remove useNewUrlParser and useUnifiedTopology options
+    await mongoose.connect(process.env.MONGO_URI); // No need for these options
     console.log("Connected to database!");
   } catch (error) {
     console.error("Database connection failed:", error);
