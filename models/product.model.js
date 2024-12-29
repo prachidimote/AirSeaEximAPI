@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-
-// Define the Product schema
 const ProductSchema = new mongoose.Schema(
   {
     name: {
@@ -13,45 +11,11 @@ const ProductSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: false,
-    },
-    category: {
-      type: String,
-      required: [true, "Please select a category"],
-    },
-    quantity: {
-      type: Number,
-      required: [true, "Please enter product quantity"],
-      min: [0, "Quantity cannot be negative"],
-    },
-    price: {
-      type: Number,
-      required: [true, "Please enter product price"],
-    },
-    currency: {
-      type: String,
-      default: "INR",
-    },
-    originCountry: {
-      type: String,
-      required: [true, "Please enter origin country"],
-    },
-    destinationCountries: {
-      type: [String],
-      required: [true, "Please specify destination countries"],
+      required: [true, "Please provide a product image"],
     },
     createdBy: {
-      type: [String],
-      required: true,
-    },
-    status: {
       type: String,
-      enum: ["active", "inactive", "discontinued"],
-      default: "active",
-    },
-    isFeatured: {
-      type: Boolean,
-      default: false,
+      required: [true, "Please specify the creator"],
     },
   },
   {
